@@ -18,11 +18,7 @@ import ru.mirea.ivashechkinav.mireaproject.workers.WorkerCounter
 
 class HomeFragment : Fragment() {
 
-    private var _binding: FragmentHomeBinding? = null
-
-    // This property is only valid between onCreateView and
-    // onDestroyView.
-    private val binding get() = _binding!!
+    private lateinit var binding: FragmentHomeBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -32,15 +28,14 @@ class HomeFragment : Fragment() {
         val homeViewModel =
             ViewModelProvider(this).get(HomeViewModel::class.java)
 
-        _binding = FragmentHomeBinding.inflate(inflater, container, false)
-        val root: View = binding.root
+        binding = FragmentHomeBinding.inflate(inflater, container, false)
 
         val textView: TextView = binding.textHome
         homeViewModel.text.observe(viewLifecycleOwner) {
             textView.text = it
         }
         initWorker()
-        return root
+        return binding.root
     }
 
     private fun initWorker() {
@@ -60,9 +55,5 @@ class HomeFragment : Fragment() {
     private fun getWorkerMessage(): Int {
         val sharedPreferences = requireContext().getSharedPreferences("my_prefs", Context.MODE_PRIVATE)
         return sharedPreferences.getInt(WorkerCounter.WORKER_MSG, 0)
-    }
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
     }
 }
