@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context=".ui.files.FilesFragment">
+
+    <TextView
+        android:id="@+id/tvHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Шифр цезаря"
+        android:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/tvInputFileName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="24sp"/>
+
+    <EditText
+        android:id="@+id/etvInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="InputText"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/etvOffset"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Offset"
+        android:inputType="textPersonName" />
+
+    <TextView
+        android:id="@+id/tvOutputFileName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="24sp"/>
+
+    <TextView
+        android:id="@+id/tvOutput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="24sp"/>
+
+    <Button
+        android:id="@+id/btnModify"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Modify" />
+</LinearLayout>

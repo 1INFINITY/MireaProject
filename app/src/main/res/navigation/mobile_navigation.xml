@@ -32,4 +32,14 @@
         android:name="ru.mirea.ivashechkinav.mireaproject.ui.DataFragment"
         android:label="fragment_data"
         tools:layout="@layout/fragment_data" />
+    <fragment
+        android:id="@+id/nav_files"
+        android:name="ru.mirea.ivashechkinav.mireaproject.ui.files.FilesFragment"
+        android:label="fragment_files"
+        tools:layout="@layout/fragment_files" />
+    <fragment
+        android:id="@+id/nav_profile"
+        android:name="ru.mirea.ivashechkinav.mireaproject.ui.profile.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" />
 </navigation>

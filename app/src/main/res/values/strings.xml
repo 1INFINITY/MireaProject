@@ -18,4 +18,6 @@
     <string name="learn_to_build_amazing_android_apps">Learn to build amazing Android apps</string>
     <string name="android_development">Android Development</string>
     <string name="android_development_title">Android Development</string>
+    <string name="profile">Profile</string>
+    <string name="files">Files</string>
 </resources>

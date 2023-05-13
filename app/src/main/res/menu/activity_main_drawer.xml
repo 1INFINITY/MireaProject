@@ -24,5 +24,13 @@
             android:id="@+id/nav_data"
             android:icon="@drawable/ic_newspaper"
             android:title="@string/android_development_title" />
+        <item
+            android:id="@+id/nav_profile"
+            android:icon="@drawable/baseline_person_24"
+            android:title="@string/profile" />
+        <item
+            android:id="@+id/nav_files"
+            android:icon="@drawable/baseline_insert_drive_file_24"
+            android:title="@string/files" />
     </group>
 </menu>
