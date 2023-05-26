@@ -1,5 +1,6 @@
 package ru.mirea.ivashechkinav.mireaproject.ui.home
 
+import android.R
 import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -19,7 +20,9 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import ru.mirea.ivashechkinav.mireaproject.databinding.FragmentHomeBinding
 import ru.mirea.ivashechkinav.mireaproject.ui.home.retrofit.MyApi
+import ru.mirea.ivashechkinav.mireaproject.ui.places.PlacesFragment
 import ru.mirea.ivashechkinav.mireaproject.workers.WorkerCounter
+
 
 class HomeFragment : Fragment() {
 
@@ -38,6 +41,12 @@ class HomeFragment : Fragment() {
         val textView: TextView = binding.textHome
         homeViewModel.text.observe(viewLifecycleOwner) {
             textView.text = it
+        }
+        binding.btnToZavedenia.setOnClickListener {
+            val transaction = requireFragmentManager().beginTransaction()
+            transaction.add(container!!.id, PlacesFragment())
+            transaction.addToBackStack(null)
+            transaction.commit()
         }
         initWorker()
         initTestApi()

@@ -59,4 +59,7 @@ dependencies {
     implementation 'androidx.lifecycle:lifecycle-runtime:2.6.1'
     implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
     implementation 'com.google.code.gson:gson:2.9.0'
+    implementation 'org.osmdroid:osmdroid-android:6.1.16'
+// библиотека для хранения данных SharedPreferences
+    implementation "androidx.preference:preference:1.2.0"
 }
