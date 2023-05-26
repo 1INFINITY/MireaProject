@@ -40,4 +40,24 @@
         app:layout_constraintBottom_toTopOf="@+id/btnStartWorker"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/btnApiTest"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TestApi"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvApiString" />
+
+    <TextView
+        android:id="@+id/tvApiString"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="96dp"
+        android:text="TextView"
+        android:textSize="28sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnStartWorker" />
 </androidx.constraintlayout.widget.ConstraintLayout>

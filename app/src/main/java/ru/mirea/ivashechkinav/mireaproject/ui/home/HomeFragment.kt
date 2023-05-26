@@ -11,9 +11,14 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.work.OneTimeWorkRequest
 import androidx.work.WorkManager
+import com.google.gson.GsonBuilder
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import okhttp3.OkHttpClient
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 import ru.mirea.ivashechkinav.mireaproject.databinding.FragmentHomeBinding
+import ru.mirea.ivashechkinav.mireaproject.ui.home.retrofit.MyApi
 import ru.mirea.ivashechkinav.mireaproject.workers.WorkerCounter
 
 class HomeFragment : Fragment() {
@@ -35,6 +40,7 @@ class HomeFragment : Fragment() {
             textView.text = it
         }
         initWorker()
+        initTestApi()
         return binding.root
     }
 
@@ -55,5 +61,23 @@ class HomeFragment : Fragment() {
     private fun getWorkerMessage(): Int {
         val sharedPreferences = requireContext().getSharedPreferences("my_prefs", Context.MODE_PRIVATE)
         return sharedPreferences.getInt(WorkerCounter.WORKER_MSG, 0)
+    }
+    private fun initTestApi() {
+        val BASE_URL = "https://www.timeapi.io/api/"
+        val gson = GsonBuilder().create()
+        val client = OkHttpClient.Builder().build()
+
+        val api = Retrofit.Builder()
+            .baseUrl(BASE_URL)
+            .addConverterFactory(GsonConverterFactory.create(gson))
+            .client(client)
+            .build().create(MyApi::class.java)
+
+        binding.btnApiTest.setOnClickListener {
+            lifecycleScope.launch {
+                binding.tvApiString.text = api.testApi().dateTime
+            }
+        }
+
     }
 }
